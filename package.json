@@ -9,12 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "framer-motion": "^12.19.1",
     "lucide-react": "^0.522.0",
+=======
+    "@reduxjs/toolkit": "^2.8.2",
+    "bootstrap": "^5.3.7",
+>>>>>>> 3ecb5c9 (New Feature in Office)
     "next": "15.3.4",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.0.0",
+<<<<<<< HEAD
     "recharts": "^3.0.0"
+=======
+    "react-redux": "^9.2.0"
+>>>>>>> 3ecb5c9 (New Feature in Office)
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
