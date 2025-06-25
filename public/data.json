@@ -109,7 +109,7 @@
       "price": 699.99,
       "stock": 120,
       "sales": 5200,
-      "image": "/images/phone.jpg"
+      "image": "/phone.jpg"
     },
     {
       "id": "#B6E4F24",
@@ -118,7 +118,7 @@
       "price": 1299.99,
       "stock": 75,
       "sales": 4300,
-      "image": "/images/laptop.jpg"
+      "image": "/laptop.jpg"
     },
     {
       "id": "#C5D2A89",
@@ -127,7 +127,7 @@
       "price": 249.99,
       "stock": 95,
       "sales": 3100,
-      "image": "/images/table.jpg"
+      "image": "/table.jpg"
     },
     {
       "id": "#D4B7C34",
@@ -136,7 +136,7 @@
       "price": 49.99,
       "stock": 180,
       "sales": 2500,
-      "image": "/images/mouse.jpg"
+      "image": "/mouse.jpg"
     },
     {
       "id": "#E3A5623",
@@ -145,7 +145,7 @@
       "price": 119.99,
       "stock": 200,
       "sales": 2000,
-      "image": "/images/shoes.jpg"
+      "image": "/shoes.jpg"
     }
   ],
   "salesByCategory": [
@@ -199,7 +199,7 @@
   ],
   "sidebarItems": [
     { "name": "Dashboard", "icon": "House", "href": "/" },
-    { "name": "Products", "icon": "ShoppingBag", "href": "/products" },
+    { "name": "Products", "icon": "ShoppingBag", "href": "/product" },
     { "name": "Clients", "icon": "Users", "href": "/users" },
     { "name": "Sales", "icon": "DollarSign", "href": "/sales" },
     { "name": "Orders", "icon": "ShoppingCart", "href": "/orders" },
