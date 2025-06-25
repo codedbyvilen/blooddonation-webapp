@@ -162,7 +162,7 @@
       "email": "Ethan.Carter@example.com",
       "phoneNumber": "+1 415-678-9023",
       "country": "United States",
-      "image": "/images/user1.jpg"
+      "image": "/user1.jpg"
     },
     {
       "id": 2,
@@ -170,7 +170,7 @@
       "email": "Sophia.Mitchell@example.com",
       "phoneNumber": "+44 7911 123456",
       "country": "United Kingdom",
-      "image": "/images/user2.jpg"
+      "image": "/user2.jpg"
     },
     {
       "id": 3,
@@ -178,7 +178,7 @@
       "email": "Liam.Harrison@example.com",
       "phoneNumber": "+49 1523 4567890",
       "country": "Germany",
-      "image": "/images/user3.jpg"
+      "image": "/user3.jpg"
     },
     {
       "id": 4,
@@ -186,7 +186,7 @@
       "email": "Ava.Bennett@example.com",
       "phoneNumber": "+91 98765 43210",
       "country": "India",
-      "image": "/images/user4.jpg"
+      "image": "/user4.jpg"
     },
     {
       "id": 5,
@@ -194,18 +194,41 @@
       "email": "Noah.Reynolds@example.com",
       "phoneNumber": "+61 412 345 678",
       "country": "Australia",
-      "image": "/images/user5.jpg"
+      "image": "/user5.jpg"
     }
   ],
   "sidebarItems": [
-    { "name": "Dashboard", "icon": "House", "href": "/" },
-    { "name": "Products", "icon": "ShoppingBag", "href": "/product" },
-    { "name": "Clients", "icon": "Users", "href": "/users" },
-    { "name": "Sales", "icon": "DollarSign", "href": "/sales" },
-    { "name": "Orders", "icon": "ShoppingCart", "href": "/orders" },
-    { "name": "Settings", "icon": "Settings", "href": "" },
-    { "name": "Messages", "icon": "Mail", "href": "" },
-    { "name": "Notifications", "icon": "Bell", "href": "" },
-    { "name": "Help", "icon": "Info", "href": "" }
+    { "name": "Dashboard", "icon": "LayoutDashboard", "href": "/" },
+    { "name": "Donors", "icon": "Users", "href": "/product" },
+    { "name": "Screening", "icon": "Droplet", "href": "/users" },
+    { "name": "Certificates", "icon": "FileText", "href": "/sales" },
+    { "name": "Settings", "icon": "Settings", "href": "/orders" }
+  ],  
+  
+  "donations": [
+    { "name": "Jan", "donations": 45 },
+    { "name": "Feb", "donations": 60 },
+    { "name": "Mar", "donations": 75 },
+    { "name": "Apr", "donations": 90 },
+    { "name": "May", "donations": 120 },
+    { "name": "Jun", "donations": 150 },
+    { "name": "Jul", "donations": 130 },
+    { "name": "Aug", "donations": 140 },
+    { "name": "Sep", "donations": 110 },
+    { "name": "Oct", "donations": 160 },
+    { "name": "Nov", "donations": 170 },
+    { "name": "Dec", "donations": 200 }
+  ],
+
+  
+  "bloodGroups": [
+    { "name": "A+", "value": 120 },
+    { "name": "A-", "value": 40 },
+    { "name": "B+", "value": 150 },
+    { "name": "B-", "value": 30 },
+    { "name": "O+", "value": 200 },
+    { "name": "O-", "value": 50 },
+    { "name": "AB+", "value": 70 },
+    { "name": "AB-", "value": 20 }
   ]
 }
