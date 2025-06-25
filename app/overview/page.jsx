@@ -1,6 +1,7 @@
 import { DollarSign, ShoppingBag, SquareActivity, Users } from 'lucide-react'
 import React from 'react'
 import StatCard from '../components/StatCard'
+import { motion } from 'framer-motion'
 
 const Overview = () => {
   return (
