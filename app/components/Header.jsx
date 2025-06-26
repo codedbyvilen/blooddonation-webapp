@@ -3,6 +3,14 @@ import React from 'react';
 import uk from '../../public/uk.png';
 import admin from '../../public/admin.jpg';
 import { Bell } from 'lucide-react';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 const Header = () => {
   return (
@@ -34,17 +42,18 @@ const Header = () => {
           </div>
 
           {/* Profile */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <Image
-              src={admin}
-              alt="Admin Profile"
-              width={35}
-              height={35}
-              className="rounded-full border border-gray-300"
-            />
-            <span className="hidden sm:block text-gray-800 font-medium">
-              John Mark
-            </span>
+          <div className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
 
         </div>
