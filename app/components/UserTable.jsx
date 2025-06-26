@@ -88,7 +88,7 @@ const UserTable = () => {
               ))}
             </tr>
           </thead>
-
+          
           <tbody className="divide-y divide-gray-700">
             {filteredClients.map((c) => (
               <motion.tr

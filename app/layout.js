@@ -1,7 +1,6 @@
 import "./globals.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import { ClerkProvider } from "@clerk/nextjs";
 
 
 export const metadata = {
@@ -11,7 +10,6 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
     <html lang="en">
       <body
         className='antialiased bg-[#F9F9F9] text-[#121212]'
@@ -31,6 +29,5 @@ export default function RootLayout({ children }) {
    
       </body>
     </html>
-    </ClerkProvider>
   );
 }

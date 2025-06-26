@@ -199,8 +199,8 @@
   ],
   "sidebarItems": [
     { "name": "Dashboard", "icon": "LayoutDashboard", "href": "/" },
-    { "name": "Donors", "icon": "Users", "href": "/product" },
-    { "name": "Screening", "icon": "Droplet", "href": "/users" },
+    { "name": "Donors", "icon": "Users", "href": "/donor" },
+    { "name": "Screening", "icon": "Droplet", "href": "/screening" },
     { "name": "Certificates", "icon": "FileText", "href": "/sales" },
     { "name": "Settings", "icon": "Settings", "href": "/orders" }
   ],  
@@ -230,5 +230,37 @@
     { "name": "O-", "value": 50 },
     { "name": "AB+", "value": 70 },
     { "name": "AB-", "value": 20 }
-  ]
+  ],
+   "donors": [
+  {
+    "id": "DNR001",
+    "fullName": "John Doe",
+    "email": "johndoe@example.com",
+    "age": 25,
+    "gender": "Male",
+    "weightKg": 70,
+    "contact": "03001234567",
+    "donatedRecently": false,
+    "eligible": true,
+    "willingToDonate": true,
+    "source": "Instagram",
+    "referredBy": "Ali - VFAHT Lahore",
+    "createdAt": "2025-06-25"
+  },
+   {
+    "id": "DNR002",
+    "fullName": "Ahmed",
+    "email": "johndoe@example.com",
+    "age": 25,
+    "gender": "Male",
+    "weightKg": 70,
+    "contact": "03001234567",
+    "donatedRecently": false,
+    "eligible": true,
+    "willingToDonate": true,
+    "source": "Instagram",
+    "referredBy": "Ali - VFAHT Lahore",
+    "createdAt": "2025-06-25"
+  }
+]
 }
