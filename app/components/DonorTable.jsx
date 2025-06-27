@@ -4,6 +4,8 @@ import React, { useState, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { Plus, Search, Edit, Save, Trash2 } from 'lucide-react';
 import { Droplet, Users, HeartHandshake } from 'lucide-react';
+import { useDonorContext } from '../hook/useDonorContext';
+
 
 // Simple StatCard component
 const StatCard = ({ name, icon: Icon, value }) => (
@@ -21,7 +23,7 @@ const StatCard = ({ name, icon: Icon, value }) => (
 );
 
 export default function DonorTable() {
-  const [donors, setDonors] = useState([]);
+  const {donors,setDonors} = useDonorContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [editRow, setEditRow] = useState(null);
