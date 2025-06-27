@@ -24,7 +24,7 @@ export default function Certificate() {
     <div className="p-4 space-y-6">
       <h2 className="text-xl font-bold text-[#D32F2F]">Donor Certificates</h2>
 
-      <div className="flex gap-4 mb-4">
+      <div className="flex gap-4 mb-1">
         <input
           type="text"
           placeholder="Search by name or ID..."
