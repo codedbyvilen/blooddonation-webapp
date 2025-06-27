@@ -201,8 +201,8 @@
     { "name": "Dashboard", "icon": "LayoutDashboard", "href": "/" },
     { "name": "Donors", "icon": "Users", "href": "/donor" },
     { "name": "Screening", "icon": "Droplet", "href": "/screening" },
-    { "name": "Certificates", "icon": "FileText", "href": "/sales" },
-    { "name": "Settings", "icon": "Settings", "href": "/orders" }
+    { "name": "Certificates", "icon": "FileText", "href": "/certificate" },
+    { "name": "Settings", "icon": "Settings", "href": "/settings" }
   ],  
   
   "donations": [
