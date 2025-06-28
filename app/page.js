@@ -1,5 +1,5 @@
 import React from 'react'
-import Overview from './overview/page'
+import Overview from './components/overview/overview.jsx'
 
 export default function page() {
   return <Overview/>

@@ -12,80 +12,37 @@ import DonorTable from './table/Donortable';
 
 
 
-
 export default function donorpage() {
   const {donors,setDonors} = useDonorContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [editRow, setEditRow] = useState(null);
-  const [editValues, setEditValues] = useState({ weight: '', contact: '' });
+  const [editValues, setEditValues] = useState({ Weight: '', Contact: '' });
 
 
 
   // Filter donors for search
   const filteredDonors = useMemo(() => {
     return donors.filter(d =>
-      d.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      d.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      d.referrer.toLowerCase().includes(searchTerm.toLowerCase())
+      d.FullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      d.Email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      d.Referrer.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [donors, searchTerm]);
 
   // Calculate stats - SIMPLE!
   const totalDonors = donors.length;
-  const recentDonors = donors.filter(d => d.recentDonation === 'Yes').length;
-  const maleCount = donors.filter(d => d.gender === 'Male').length;
-  const femaleCount = donors.filter(d => d.gender === 'Female').length;
+  const recentDonors = donors.filter(d => d.RecentDonation === 'Yes').length;
+  const maleCount = donors.filter(d => d.Gender === 'Male').length;
+  const femaleCount = donors.filter(d => d.Gender === 'Female').length;
 
-  // Fix text format - SIMPLE!
-  const fixText = (text, type) => {
-    const clean = text.trim();
-    
-    if (type === 'yesno') {
-      return clean.toLowerCase() === 'yes' ? 'Yes' : 'No';
-    }
-    if (type === 'gender') {
-      return clean.toLowerCase() === 'male' ? 'Male' : 'Female';
-    }
-    if (type === 'source') {
-      const lower = clean.toLowerCase();
-      if (lower === 'whatsapp') return 'WhatsApp';
-      if (lower === 'facebook') return 'Facebook';
-      if (lower === 'instagram') return 'Instagram';
-      if (lower === 'other') return 'Other';
-      return clean;
-    }
-    return clean;
-  };
 
-  // Add new donor - SIMPLE!
-  const onSubmit = (data) => {
-    const newDonor = {
-      id: `DNR${donors.length + 1}`,
-      fullName: data.fullName.trim(),
-      email: data.email.toLowerCase().trim(),
-      age: data.age,
-      gender: fixText(data.gender, 'gender'),
-      weight: data.weight,
-      contact: data.contact.trim(),
-      recentDonation: fixText(data.recentDonation, 'yesno'),
-      criteria: fixText(data.criteria, 'yesno'),
-      willing: fixText(data.willing, 'yesno'),
-      sharedVia: fixText(data.sharedVia, 'source'),
-      referrer: data.referrer.trim(),
-      createdAt: new Date().toISOString().split('T')[0],
-    };
-
-    setDonors([...donors, newDonor]);
-    setShowModal(false);
-    reset(); // Clear form
-  };
 
   // Save edited donor - SIMPLE!
   const saveEdit = (donorId) => {
     setDonors(donors.map(d => 
       d.id === donorId 
-        ? { ...d, weight: editValues.weight, contact: editValues.contact }
+        ? { ...d, Weight: editValues.Weight, Contact: editValues.Contact }
         : d
     ));
     setEditRow(null);
@@ -110,11 +67,11 @@ export default function donorpage() {
       </div>
 
       {/* Main Table */}
-      <DonorTable donors={donors} searchTerm={searchTerm} setSearchTerm={setSearchTerm} editRow={editRow} deleteDonor={deleteDonor} setShowModal={setShowModal} setEditRow={setEditRow} saveEdit={saveEdit} filteredDonors={filteredDonors} editValues={editValues} setEditValues={setEditValues}/>
+      <DonorTable saveEdit={saveEdit} donors={donors} searchTerm={searchTerm} setSearchTerm={setSearchTerm} editRow={editRow} deleteDonor={deleteDonor} setShowModal={setShowModal} setEditRow={setEditRow} saveEdit={saveEdit} filteredDonors={filteredDonors} editValues={editValues} setEditValues={setEditValues}/>
 
       {/* Add Donor Modal - SIMPLE FORM! */}
       {showModal && (
-        <DonorModal setShowModal={setShowModal} onSubmit={onSubmit}/>
+        <DonorModal donors={donors} setDonors={setDonors} setShowModal={setShowModal} />
       )}
     </motion.div>
   );

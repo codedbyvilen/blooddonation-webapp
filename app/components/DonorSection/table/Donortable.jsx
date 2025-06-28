@@ -1,7 +1,7 @@
 import { Edit, Plus, Save, Search, Trash2 } from 'lucide-react';
 import React from 'react'
 
-function DonorTable({donors,searchTerm,editRow,deleteDonor,setShowModal,setEditRow,setEditValues,filteredDonors,editValues}) {
+function DonorTable({setSearchTerm,saveEdit,donors,searchTerm,editRow,deleteDonor,setShowModal,setEditRow,setEditValues,filteredDonors,editValues}) {
     return (
         <div className="bg-white shadow-lg p-4 border border-[#D32F2F] rounded-lg">
         
@@ -48,32 +48,32 @@ function DonorTable({donors,searchTerm,editRow,deleteDonor,setShowModal,setEditR
             <tbody>
               {filteredDonors.map(donor => (
                 <tr key={donor.id} className="border-t">
-                  <td className="px-4 py-2">{donor.fullName}</td>
-                  <td className="px-4 py-2">{donor.email}</td>
-                  <td className="px-4 py-2">{donor.age}</td>
-                  <td className="px-4 py-2">{donor.gender}</td>
+                  <td className="px-4 py-2">{donor.FullName}</td>
+                  <td className="px-4 py-2">{donor.Email}</td>
+                  <td className="px-4 py-2">{donor.Age}</td>
+                  <td className="px-4 py-2">{donor.Gender}</td>
                   <td className="px-4 py-2">
                     {editRow === donor.id ? (
                       <input 
-                        value={editValues.weight} 
-                        onChange={(e) => setEditValues({...editValues, weight: e.target.value})} 
+                        value={editValues.Weight} 
+                        onChange={(e) => setEditValues({...editValues, Weight: e.target.value})} 
                         className="border rounded px-2 py-1 w-20" 
                       />
-                    ) : donor.weight}
+                    ) : donor.Weight}
                   </td>
                   <td className="px-4 py-2">
                     {editRow === donor.id ? (
                       <input 
-                        value={editValues.contact} 
-                        onChange={(e) => setEditValues({...editValues, contact: e.target.value})} 
+                        value={editValues.Contact} 
+                        onChange={(e) => setEditValues({...editValues, Contact: e.target.value})} 
                         className="border rounded px-2 py-1 w-32" 
                       />
-                    ) : donor.contact}
+                    ) : donor.Contact}
                   </td>
-                  <td className="px-4 py-2">{donor.willing}</td>
-                  <td className="px-4 py-2">{donor.referrer}</td>
-                  <td className="px-4 py-2">{donor.sharedVia}</td>
-                  <td className="px-4 py-2">{donor.createdAt}</td>
+                  <td className="px-4 py-2">{donor.Willing}</td>
+                  <td className="px-4 py-2">{donor.Referrer}</td>
+                  <td className="px-4 py-2">{donor.SharedVia}</td>
+                  <td className="px-4 py-2">{donor.CreatedAt}</td>
                   <td className="px-4 py-2 flex gap-2">
                     {editRow === donor.id ? (
                       <button onClick={() => saveEdit(donor.id)} className="text-green-600 hover:text-green-400">
@@ -82,7 +82,7 @@ function DonorTable({donors,searchTerm,editRow,deleteDonor,setShowModal,setEditR
                     ) : (
                       <button onClick={() => {
                         setEditRow(donor.id);
-                        setEditValues({ weight: donor.weight, contact: donor.contact });
+                        setEditValues({ Weight: donor.Weight, Contact: donor.Contact });
                       }} className="text-blue-600 hover:text-blue-400">
                         <Edit size={18} />
                       </button>

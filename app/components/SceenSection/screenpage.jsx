@@ -16,61 +16,11 @@ import { motion } from "framer-motion";
 
 const screenpage = () => {
   const [modelOpen, setModelOpen] = useState(false);
-  const [data, setData] = useState([]);
-  const { donors } = useDonorContext();
-  const [isEligible, setIsEligible] = useState(false);
+  const { donors,screenlist,setScreenlist } = useDonorContext();
 
-  const [screenData, setScreenData] = useState({
-    ScreenID: `${data.length + 1}`,
-    DonorID: `${data.length + 1}`,
-    Date: new Date().toISOString().split("T")[0],
-    Weight: "",
-    Hemoglobin: "",
-    Bp: "",
-    HepatitisB: "",
-    HepatitisC: "",
-    Malaria: "",
-    Hiv: "",
-    Syphilis: "",
-    BloodGroup: "",
-  });
 
-  const handleModel = () => {
-    setModelOpen((prev) => !prev);
-  };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setScreenData({ ...screenData, [name]: value });
-  };
 
-  const checkEligibility = () => {
-    const haveDisease =
-      screenData.HepatitisB?.toLowerCase() === "positive" ||
-      screenData.HepatitisC?.toLowerCase() === "positive" ||
-      screenData.Hiv?.toLowerCase() === "positive" ||
-      screenData.Malaria?.toLowerCase() === "positive" ||
-      screenData.Syphilis?.toLowerCase() === "positive";
-
-    // Assuming BP is systolic/diastolic, update accordingly if different
-    const weightOk = screenData.Weight >= 50;
-    const hemoglobinOk = screenData.Hemoglobin >= 12.5;
-    const bpOk = screenData.Bp >= 80 && screenData.Bp <= 120;
-
-    if (weightOk && hemoglobinOk && bpOk && !haveDisease) {
-      setIsEligible(true);
-    } else {
-      setIsEligible(false);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(screenData);
-    setData([...data, screenData]);
-    checkEligibility();
-    setModelOpen(false);
-  };
 
   return (
     //Main Parent Container
@@ -81,13 +31,13 @@ const screenpage = () => {
 
       {/*Stat Card*/}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <StatCard name="Total Screenings" icon={Stethoscope} value={0} />
-        <StatCard name="Eligible Donors" icon={Droplet} value={0} />
-        <StatCard name="Ineligible Donors" icon={UserX} value={0} />
+        <StatCard name="Total Screenings" icon={Stethoscope} value={screenlist.length} />
+         <StatCard name="Eligible Donors" icon={Droplet} value={screenlist.filter((val) => val.Eligible === "Yes").length} />
+        <StatCard name="Ineligible Donors" icon={UserX} value={screenlist.filter((val)=>val.Eligible === "No").length} />
       </div>
 
       {/*Screening Table*/}
-      <ScreeningTable isEligible={isEligible} handleModel={handleModel} data={data} />
+      <ScreeningTable donors={donors} setScreenlist={setScreenlist} setModelOpen={setModelOpen}  screenlist={screenlist} />
 
 
       {/*Screening Modal*/}
@@ -98,10 +48,10 @@ const screenpage = () => {
 
           {/* Modal Content */}
           <ScreeningModal
+            setScreenlist={setScreenlist}
+            screenlist={screenlist}
+            donors={donors}
             setModelOpen={setModelOpen}
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            screenData={screenData}
           />
         </>
       )}

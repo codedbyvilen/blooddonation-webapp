@@ -5,7 +5,9 @@ export const DonateContext = createContext();
 
 export default function DonorProvider({children}){
     const [donors, setDonors] = useState([]);
-
-    return <DonateContext.Provider value={{donors,setDonors}}>{children}</DonateContext.Provider>
-
+    const [screenlist,setScreenlist] = useState([]);
+    return <DonateContext.Provider value={{donors,setDonors,screenlist,setScreenlist}}>{children}</DonateContext.Provider>
 }
+
+
+
