@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Save } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Settings() {
   const [eventInfo, setEventInfo] = useState({
@@ -23,7 +24,7 @@ export default function Settings() {
   };
 
   return (
-    <div className="p-4 space-y-6">
+    <motion.div className="p-4 space-y-6">
       <h2 className="text-xl font-bold text-[#D32F2F]">Settings</h2>
 
       {/* Event Info */}
@@ -85,6 +86,6 @@ export default function Settings() {
       <button onClick={handleSave} className="mt-4 px-4 py-2 bg-[#D32F2F] text-white rounded hover:bg-[#b71c1c] flex items-center gap-2">
         <Save size={16} /> Save Settings
       </button>
-    </div>
+    </motion.div>
   );
 }

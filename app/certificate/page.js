@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Search, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 
 export default function Certificate() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +23,11 @@ export default function Certificate() {
   };
 
   return (
-    <div className="p-4 space-y-6">
+    <motion.div className="p-4 space-y-6" 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}>
+      
       <h2 className="text-xl font-bold text-[#D32F2F]">Donor Certificates</h2>
 
       <div className="flex gap-4 mb-1">
@@ -60,6 +66,6 @@ export default function Certificate() {
           </tbody>
         </table>
       </div>
-    </div>
+    </motion.div>
   );
 }

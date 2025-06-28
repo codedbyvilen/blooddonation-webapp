@@ -9,8 +9,10 @@ import {
 
 from "lucide-react";
 import { useDonorContext } from "../../hook/useDonorContext";
-import ScreeningModal from "./models/ScreeningModal";
+import ScreeningModal from "./modal/ScreeningModal";
 import ScreeningTable from "./table/ScreeningTable";
+import { motion } from "framer-motion";
+
 
 const screenpage = () => {
   const [modelOpen, setModelOpen] = useState(false);
@@ -72,7 +74,10 @@ const screenpage = () => {
 
   return (
     //Main Parent Container
-    <div className="p-4 flex flex-col gap-y-12 space-y-0 ">
+    <motion.div className="p-8 flex flex-col gap-y-12 space-y-0 "
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}>
 
       {/*Stat Card*/}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -100,7 +105,7 @@ const screenpage = () => {
           />
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 
